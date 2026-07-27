@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serhii0304.github.io/abetka-pro-site/sitemap.xml
