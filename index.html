@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#f4f7fb" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0d1722" media="(prefers-color-scheme: dark)">
     <meta name="author" content="Лукашенко Сергій Олександрович">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=2">
     <meta property="og:title" content="Абетка Pro — списки ПІБ за українською абеткою">
     <meta
       property="og:description"
@@ -76,6 +76,7 @@
         <nav class="site-nav" id="site-navigation" aria-label="Основна навігація" data-menu>
           <a href="#mozhlyvosti">Можливості</a>
           <a href="#yak-pratsiuie">Як це працює</a>
+          <a href="#video">Відео</a>
           <a href="#prydbaty">Придбати</a>
           <a href="#pytannia">Питання</a>
           <a
@@ -88,24 +89,28 @@
 
     <main id="main-content">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div>
+        <div class="hero-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="container">
+          <div class="hero-intro">
             <p class="eyebrow">Українська. Офлайн. Portable</p>
-            <h1 id="hero-title">Абетка Pro — списки ПІБ за сучасною українською абеткою</h1>
+            <h1 id="hero-title">
+              Абетка Pro — списки ПІБ за
+              <span class="gradient-text">сучасною українською абеткою</span>
+            </h1>
             <p class="hero-lead">
               Упорядковуйте списки працівників, клієнтів, учасників і здобувачів освіти
               у звичному робочому процесі — локально, точно та без передавання даних.
             </p>
             <div class="hero-actions">
-              <div class="primary-action">
-                <a
-                  class="button"
-                  href="https://github.com/Serhii0304/abetka-pro-site/releases/download/v1.0.0/Abetka-Pro-1.0.0-win-x64-portable.zip"
-                >Завантажити безкоштовну пробну версію</a>
-                <span class="download-note">ZIP, 1,5 МБ · Windows 10/11 64-біт · 7 днів без обмежень · без установлення</span>
-              </div>
-              <a class="button button-secondary" href="#prydbaty">Придбати ліцензію — 290 грн</a>
+              <a
+                class="button"
+                href="https://github.com/Serhii0304/abetka-pro-site/releases/download/v1.0.0/Abetka-Pro-1.0.0-win-x64-portable.zip"
+              >Завантажити пробну версію</a>
+              <a class="button button-secondary" href="#prydbaty">Придбати — 290 грн</a>
             </div>
+            <p class="download-note">
+              ZIP, 1,5 МБ · Windows 10/11 64-біт · 7 днів без обмежень · без установлення
+            </p>
             <ul class="trust-line" aria-label="Коротко про програму">
               <li>Версія 1.0.0</li>
               <li>Без облікового запису</li>
@@ -113,58 +118,37 @@
             </ul>
           </div>
 
-          <div>
-            <div class="app-visual" role="img" aria-label="Схематичний вигляд двопанельного інтерфейсу Абетка Pro">
-              <div class="app-bar">
-                <div class="app-bar-brand">
-                  <img class="app-bar-logo" src="images/logo.png" width="21" height="21" alt="">
-                  <span>Абетка Pro</span>
-                </div>
-                <span class="app-bar-status">Пробний період: ще 7 дн.</span>
-              </div>
-              <div class="app-toolbar" aria-hidden="true">
-                <span class="app-tool">Відкрити файл</span>
-                <span class="app-tool">Вставити</span>
-                <span class="app-tool">Приклад</span>
-                <span class="app-tool">Перегляд</span>
-                <span class="app-tool">Очистити</span>
-                <span class="app-tool">Копіювати</span>
-                <span class="app-tool">Зберегти</span>
-              </div>
-              <div class="app-settings" aria-hidden="true">
-                <span class="app-select"></span>
-                <span class="app-select short"></span>
-                <span class="app-select"></span>
-                <span class="app-select short"></span>
-              </div>
-              <div class="app-panels">
-                <div class="app-panel">
-                  <div class="app-panel-title">Вхідний список</div>
-                  <ol class="app-lines">
-                    <li>Яценко Марія Іванівна</li>
-                    <li>Ґалаґан Олег Петрович</li>
-                    <li>Іваненко Анна Андріївна</li>
-                    <li>Ємець Богдан Сергійович</li>
-                    <li>Ґалаґан Олег Петрович</li>
-                  </ol>
-                </div>
-                <div class="app-panel">
-                  <div class="app-panel-title">Відсортований список</div>
-                  <ol class="app-lines output">
-                    <li class="duplicate">Ґалаґан Олег Петрович</li>
-                    <li class="duplicate">Ґалаґан Олег Петрович</li>
-                    <li>Ємець Богдан Сергійович</li>
-                    <li>Іваненко Анна Андріївна</li>
-                    <li>Яценко Марія Іванівна</li>
-                  </ol>
-                </div>
-              </div>
-              <div class="app-footer" aria-hidden="true">
-                <span>Записів: 5 · Унікальних: 4</span>
-                <span>Повторів знайдено: 2</span>
-              </div>
+          <figure class="hero-figure">
+            <a class="hero-shot" href="images/screenshots/01-golovne-vikno.png">
+              <img
+                src="images/screenshots/01-golovne-vikno.png"
+                width="1263"
+                height="896"
+                alt="Робоче вікно «Абетка Pro»: ліворуч вхідний список із нумерацією, маркерами й різними варіантами апострофа, праворуч той самий список, упорядкований за українською абеткою, з вилученими повторами"
+              >
+            </a>
+            <figcaption class="visual-caption">
+              Робоче вікно програми · натисніть, щоб відкрити на весь розмір
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="Коротко в цифрах">
+        <div class="container">
+          <div class="stats-grid">
+            <div data-reveal>
+              <span class="stat-value" data-count-to="50000" data-count-format="space">50 000</span>
+              <span class="stat-label">записів у навантажувальних перевірках Word і Excel</span>
             </div>
-            <p class="visual-caption">Схематичний вигляд робочого вікна</p>
+            <div data-reveal>
+              <span class="stat-value" data-count-to="6">6</span>
+              <span class="stat-label">форматів імпорту й стільки ж форматів експорту</span>
+            </div>
+            <div data-reveal>
+              <span class="stat-value" data-count-to="0">0</span>
+              <span class="stat-label">байтів ваших списків надсилається в інтернет</span>
+            </div>
           </div>
         </div>
       </section>
@@ -173,23 +157,32 @@
         <div class="container">
           <div class="section-heading centered">
             <p class="eyebrow">Три головні переваги</p>
-            <h2 id="theses-title">Створена для відповідальної роботи зі списками</h2>
+            <h2 id="theses-title">Чому саме ця програма</h2>
           </div>
           <div class="cards cards-three">
-            <article class="card thesis-card">
+            <article class="card thesis-card" data-reveal>
               <span class="thesis-number">01</span>
-              <h3>Професійна українська програма</h3>
-              <p>Перша професійна українська програма для впорядкування списків за сучасною абеткою.</p>
+              <h3>Перша професійна українська</h3>
+              <p>
+                Програму зроблено для української абетки й українських імен. Підходить
+                установам, навчальним закладам, кадровим службам і для особистого користування.
+              </p>
             </article>
-            <article class="card thesis-card">
+            <article class="card thesis-card" data-reveal>
               <span class="thesis-number">02</span>
-              <h3>Дані залишаються у вас</h3>
-              <p>Працює повністю без інтернету — списки не залишають ваш комп’ютер.</p>
+              <h3>Дані не залишають комп’ютер</h3>
+              <p>
+                Робота повністю без інтернету: ні хмари, ні телеметрії, ні облікового запису.
+                Списки людей залишаються там, де ви їх відкрили.
+              </p>
             </article>
-            <article class="card thesis-card">
+            <article class="card thesis-card" data-reveal>
               <span class="thesis-number">03</span>
-              <h3>Готова до запуску</h3>
-              <p>Не потребує встановлення й прав адміністратора та працює з USB-накопичувача.</p>
+              <h3>Не потребує встановлення</h3>
+              <p>
+                Один файл запускається з будь-якої папки або флешки. Права адміністратора
+                не потрібні — це важливо на робочих комп’ютерах установ.
+              </p>
             </article>
           </div>
         </div>
@@ -203,47 +196,57 @@
             <p>Усі основні дії зібрані в одному двопанельному вікні, а вихідні файли програма не змінює.</p>
           </div>
           <div class="feature-grid">
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Сортування</p>
               <h3>Сучасна українська абетка</h3>
               <p>Точний порядок А, Б, В, Г, Ґ, Д, Е, Є… з коректним урахуванням І, Ї та Й.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">ПІБ</p>
               <h3>Багаторівневий порядок</h3>
               <p>Сортування за прізвищем, ім’ям, по батькові, усім рядком або їх послідовною комбінацією.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Нормалізація</p>
               <h3>Апострофи, дефіси й пробіли</h3>
               <p>Три технічні варіанти апострофа, дефіси, зайві пробіли та початкова нумерація обробляються послідовно.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
+              <p class="feature-tag">Регістр</p>
+              <h3>«іваненко» та «ІВАНЕНКО» стають «Іваненко»</h3>
+              <p>
+                Прізвище, ім’я та по батькові з малої літери або набрані великими
+                набувають правильного вигляду. Складене ім’я через дефіс — «Анна-Марія» —
+                з великої з обох боків, а апостроф нового слова не починає: виходить
+                «Лук’яненко». Поля з цифрами, адресами й поштою програма не чіпає.
+              </p>
+            </article>
+            <article class="feature" data-reveal>
               <p class="feature-tag">Імпорт</p>
               <h3>Файли та буфер обміну</h3>
               <p>DOCX, XLSX, текстовий PDF, TXT, CSV, TSV, вставлення тексту й перетягування файла у вікно.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Повтори</p>
               <h3>П’ять безпечних режимів</h3>
               <p>Залишити всі, позначити, зберегти перший або останній запис чи вилучити лише зайві копії.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Пошук</p>
               <h3>Збіги без приховування рядків</h3>
               <p>Живе підсвічування, лічильник і перехід між знайденими фрагментами без фільтрації списку.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Експорт</p>
               <h3>Word, Excel, PDF і текст</h3>
               <p>DOCX, XLSX, PDF A4, TXT, CSV та TSV — для всього результату або лише вибраних рядків.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Навантаження</p>
               <h3>Перевірено на 50 000 записів</h3>
               <p>Автоматизовані навантажувальні перевірки охоплюють великі документи Word і Excel.</p>
             </article>
-            <article class="feature">
+            <article class="feature" data-reveal>
               <p class="feature-tag">Результат</p>
               <h3>Гнучке оформлення документів</h3>
               <p>У Word — список або таблиця; у PDF — A4, 11–14 пт, книжкова чи альбомна орієнтація.</p>
@@ -260,19 +263,19 @@
             <p>Перший список можна підготувати за кілька хвилин.</p>
           </div>
           <ol class="steps">
-            <li class="step">
+            <li class="step" data-reveal>
               <h3>Додайте список</h3>
               <p>Вставте текст із буфера обміну або відкрийте підтримуваний файл.</p>
             </li>
-            <li class="step">
+            <li class="step" data-reveal>
               <h3>Виберіть порядок</h3>
               <p>Укажіть поле сортування та напрям А → Я або Я → А.</p>
             </li>
-            <li class="step">
+            <li class="step" data-reveal>
               <h3>Перевірте повтори</h3>
               <p>Спочатку позначте однакові записи, а потім оберіть потрібну дію.</p>
             </li>
-            <li class="step">
+            <li class="step" data-reveal>
               <h3>Збережіть результат</h3>
               <p>Скопіюйте список або експортуйте його у Word, Excel, PDF чи текстовий формат.</p>
             </li>
@@ -284,32 +287,55 @@
         </div>
       </section>
 
+      <section class="section section-alt" id="video" aria-labelledby="video-title">
+        <div class="container video-layout">
+          <div data-reveal>
+            <p class="eyebrow">Відео</p>
+            <h2 id="video-title">Подивіться, як це виглядає в роботі</h2>
+            <p>
+              Тридцять секунд без зайвих слів: невпорядкований список перетворюється
+              на готовий документ. Знято з екрана, без монтажних хитрощів.
+            </p>
+            <p class="video-note">
+              Відео завантажується з YouTube лише після натискання кнопки — доти сторінка
+              не звертається до сторонніх серверів і не отримує від них жодних файлів
+              спостереження.
+            </p>
+          </div>
+          <div data-reveal>
+            <div class="video-frame" id="video-frame" data-video-id="F944pUe8kNw">
+              <img
+                src="images/video-oblozhka.jpg"
+                width="405"
+                height="720"
+                alt="Кадр із відео: вікно «Абетка Pro» з написом «Один файл. Без встановлення»"
+                loading="lazy"
+              >
+              <button class="video-play" type="button" data-video-play aria-label="Відтворити відео про «Абетка Pro» (30 секунд)">
+                <span class="video-play-caption">Дивитися 30 секунд</span>
+                <span class="video-play-circle" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ГАЛЕРЕЯ ЗНІМКІВ ЕКРАНА ПОКИ ПРИХОВАНА.
            Причина: у папці images/screenshots лежать графічні заготовки, а не реальні
            кадри програми. Показувати їх відвідувачам не варто.
 
-           ЩОБ УВІМКНУТИ РОЗДІЛ: покладіть п'ять справжніх знімків у images/screenshots
+           ЩОБ УВІМКНУТИ РОЗДІЛ: покладіть чотири знімки 02–05 у images/screenshots
            з тими самими назвами (див. images/screenshots/README.md) і приберіть
-           слово hidden у рядку нижче. Більше нічого змінювати не потрібно. -->
+           слово hidden у рядку нижче. Більше нічого змінювати не потрібно.
+           Знімок 01 уже справжній — він показаний у шапці сторінки. -->
       <section class="section section-alt" id="znimky" aria-labelledby="screenshots-title" hidden>
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Знімки екрана</p>
             <h2 id="screenshots-title">Робочий процес без зайвих кроків</h2>
-            <p>Після підготовки фінальних знімків ці заготовки буде замінено реальними кадрами програми.</p>
+            <p>Головне вікно показано вище, у шапці сторінки. Тут — окремі етапи роботи.</p>
           </div>
           <div class="screenshot-grid">
-            <figure class="screenshot-card">
-              <div class="screenshot-frame">
-                <img
-                  class="screenshot-image"
-                  src="images/screenshots/01-golovne-vikno.png"
-                  alt="Головне двопанельне вікно Абетка Pro з готовим відсортованим списком"
-                  loading="lazy"
-                >
-              </div>
-              <figcaption>Головне вікно: вихідний і впорядкований списки поруч</figcaption>
-            </figure>
             <figure class="screenshot-card">
               <div class="screenshot-frame">
                 <img
@@ -374,9 +400,9 @@
             <a class="button button-light" href="konfidencijnist.html">Прочитати повідомлення про конфіденційність</a>
           </div>
           <div class="privacy-points">
-            <div class="privacy-point"><p>Без підключення до інтернету для сортування, імпорту й експорту</p></div>
-            <div class="privacy-point"><p>Без автоматичного надсилання статистики та звітів про помилки</p></div>
-            <div class="privacy-point"><p>Вихідні файли створюються лише у вибраному вами місці</p></div>
+            <div class="privacy-point" data-reveal><p>Без підключення до інтернету для сортування, імпорту й експорту</p></div>
+            <div class="privacy-point" data-reveal><p>Без автоматичного надсилання статистики та звітів про помилки</p></div>
+            <div class="privacy-point" data-reveal><p>Вихідні файли створюються лише у вибраному вами місці</p></div>
           </div>
         </div>
       </section>
@@ -389,7 +415,7 @@
             <p>Перед оплатою можна перевірити всі можливості програми протягом 7 календарних днів.</p>
           </div>
           <div class="cards cards-two">
-            <article class="card price-card">
+            <article class="card price-card" data-reveal>
               <p class="price-label">Домашня ліцензія</p>
               <h3>Для особистого користування</h3>
               <p class="price">290 грн <small>одноразово</small></p>
@@ -405,7 +431,7 @@
                 href="mailto:sergeymusic0304@gmail.com?subject=%D0%97%D0%B0%D0%BC%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F%20%C2%AB%D0%90%D0%B1%D0%B5%D1%82%D0%BA%D0%B0%20Pro%C2%BB&amp;body=%D0%94%D0%BE%D0%B1%D1%80%D0%B8%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C%21%0A%0A%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D0%B4%D0%B1%D0%B0%D1%82%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%20%C2%AB%D0%90%D0%B1%D0%B5%D1%82%D0%BA%D0%B0%20Pro%C2%BB%20%28%D0%BF%D0%BE%D0%B6%D0%B8%D1%82%D1%82%D1%94%D0%B2%D0%B0%20%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8F%20%E2%80%94%20290%20%D0%B3%D1%80%D0%BD%29.%0A%0A1.%20%D0%9F%D0%86%D0%91%20%D0%B0%D0%B1%D0%BE%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%97%20%28%D0%B1%D1%83%D0%B4%D0%B5%20%D0%B2%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%BE%20%D0%B2%20%D1%96%D0%BC%D0%B5%D0%BD%D0%BD%D1%83%20%D0%BB%D1%96%D1%86%D0%B5%D0%BD%D0%B7%D1%96%D1%8E%29%3A%20%E2%80%A6%0A2.%20%D0%9A%D1%96%D0%BB%D1%8C%D0%BA%D1%96%D1%81%D1%82%D1%8C%20%D0%BF%D1%80%D0%B8%D1%81%D1%82%D1%80%D0%BE%D1%97%D0%B2%20%28%D0%BA%D0%BE%D0%BC%D0%BF%E2%80%99%D1%8E%D1%82%D0%B5%D1%80%D1%96%D0%B2%29%3A%20%E2%80%A6%0A3.%20%D0%9F%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F%20%28%D0%BE%D1%81%D0%BE%D0%B1%D0%B8%D1%81%D1%82%D0%B5%20%2F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D1%96%D1%8F%20%D1%87%D0%B8%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B0%20%2F%20%D0%BD%D0%B0%D0%B2%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9%20%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%29%3A%20%E2%80%A6%0A4.%20%D0%97%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%B9%20%D1%81%D0%BF%D0%BE%D1%81%D1%96%D0%B1%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%20%28%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D0%B0%D0%B7%20%D0%BD%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D0%BA%D1%83%20%2F%20IBAN%20%2F%20%D1%96%D0%BD%D1%88%D0%B5%29%3A%20%E2%80%A6%0A5.%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B2%E2%80%99%D1%8F%D0%B7%D0%BA%D1%83%20%28%D1%8F%D0%BA%D1%89%D0%BE%20%D0%BD%D0%B5%20%D1%86%D1%8F%20%D0%BF%D0%BE%D1%88%D1%82%D0%B0%29%3A%20%E2%80%A6%0A%0A%D0%94%D1%8F%D0%BA%D1%83%D1%8E%21"
               >Написати для замовлення</a>
             </article>
-            <article class="card price-card">
+            <article class="card price-card" data-reveal>
               <p class="price-label">Корпоративна ліцензія</p>
               <h3>Для організацій і закладів</h3>
               <p class="price">10–200 <small>комп’ютерів із кроком 10</small></p>
@@ -589,6 +615,14 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <div class="sticky-cta" data-sticky-cta hidden>
+      <p>«Абетка Pro» — 7 днів безкоштовно, без установлення</p>
+      <a
+        class="button"
+        href="https://github.com/Serhii0304/abetka-pro-site/releases/download/v1.0.0/Abetka-Pro-1.0.0-win-x64-portable.zip"
+      >Завантажити</a>
+    </div>
+
+    <script src="js/main.js?v=2"></script>
   </body>
 </html>

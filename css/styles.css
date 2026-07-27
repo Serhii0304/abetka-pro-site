@@ -237,31 +237,21 @@ main {
 
 .hero {
   position: relative;
-  padding: 76px 0 72px;
+  padding: 68px 0 44px;
   border-bottom: 1px solid var(--border);
   background:
     radial-gradient(circle at 80% 16%, rgba(31, 95, 168, 0.12), transparent 34%),
     linear-gradient(180deg, var(--surface), var(--page));
 }
 
-.hero::after {
-  position: absolute;
-  right: -160px;
-  bottom: -210px;
-  width: 440px;
-  height: 440px;
-  border: 1px solid rgba(31, 95, 168, 0.15);
-  border-radius: 50%;
-  content: "";
-}
-
-.hero-grid {
+.hero-intro {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.86fr);
-  align-items: center;
-  gap: 64px;
+  max-width: 720px;
+}
+
+.hero-figure {
+  margin: 48px 0 0;
 }
 
 .eyebrow {
@@ -293,33 +283,33 @@ h3 {
 }
 
 h1 {
-  max-width: 16ch;
-  margin-bottom: 22px;
-  font-size: clamp(2.55rem, 5.4vw, 4.8rem);
-  font-weight: 820;
-  letter-spacing: -0.045em;
+  max-width: 24ch;
+  margin-bottom: 18px;
+  font-size: clamp(1.95rem, 3.1vw, 2.7rem);
+  font-weight: 720;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  margin-bottom: 18px;
-  font-size: clamp(2rem, 3.6vw, 3.1rem);
-  font-weight: 790;
-  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
 }
 
 h3 {
   margin-bottom: 10px;
-  font-size: 1.25rem;
-  font-weight: 760;
-  letter-spacing: -0.012em;
+  font-size: 1.12rem;
+  font-weight: 680;
+  letter-spacing: -0.008em;
 }
 
 .hero-lead {
-  max-width: 59ch;
+  max-width: 56ch;
   margin: 0 0 28px;
   color: var(--muted);
-  font-size: clamp(1.08rem, 1.8vw, 1.25rem);
-  line-height: 1.62;
+  font-size: clamp(1.02rem, 1.2vw, 1.12rem);
+  line-height: 1.6;
 }
 
 .hero-actions {
@@ -329,15 +319,11 @@ h3 {
   flex-wrap: wrap;
 }
 
-.primary-action {
-  display: grid;
-  gap: 7px;
-}
-
 .download-note {
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 13.5px;
+  line-height: 1.5;
 }
 
 .button {
@@ -425,153 +411,27 @@ h3 {
   content: "";
 }
 
-.app-visual {
-  position: relative;
-  padding: 14px;
+/* Справжній знімок робочого вікна програми в шапці головної сторінки. */
+.hero-shot {
+  display: block;
+  overflow: hidden;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
-  background: #f7fafd;
+  background: var(--surface);
   box-shadow: var(--shadow-lg);
-  color: #182230;
+  line-height: 0;
+  transition: border-color 160ms ease, transform 160ms ease;
 }
 
-.app-visual::before {
-  position: absolute;
-  z-index: -1;
-  top: -16px;
-  right: -16px;
-  width: 86px;
-  height: 86px;
-  border-top: 8px solid var(--blue);
-  border-right: 8px solid var(--yellow);
-  border-radius: 0 var(--radius) 0 0;
-  content: "";
+.hero-shot img {
+  width: 100%;
+  height: auto;
 }
 
-.app-bar {
-  display: flex;
-  min-height: 38px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 7px 10px;
-  border-radius: 8px 8px 4px 4px;
-  background: var(--blue-deep);
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.app-bar-brand {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.app-bar-logo {
-  width: 21px;
-  height: 21px;
-  border-radius: 5px;
-}
-
-.app-bar-status {
-  padding: 3px 7px;
-  border-radius: 5px;
-  background: #f1c94e;
-  color: #172033;
-}
-
-.app-toolbar {
-  display: flex;
-  gap: 5px;
-  padding: 9px 4px 7px;
-}
-
-.app-tool {
-  height: 23px;
-  padding: 4px 7px;
-  border: 1px solid #cad7e5;
-  border-radius: 4px;
-  background: #ffffff;
-  color: #47566a;
-  font-size: 8px;
-  line-height: 1;
-}
-
-.app-settings {
-  display: flex;
-  min-height: 34px;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 8px;
-  border: 1px solid #d4deea;
-  border-radius: 5px;
-  background: #eef3f8;
-}
-
-.app-select {
-  height: 17px;
-  width: 28%;
-  border: 1px solid #b7c6d6;
-  border-radius: 3px;
-  background: #ffffff;
-}
-
-.app-select.short {
-  width: 17%;
-}
-
-.app-panels {
-  display: grid;
-  min-height: 270px;
-  margin-top: 8px;
-  grid-template-columns: 0.88fr 1.12fr;
-  gap: 7px;
-}
-
-.app-panel {
-  overflow: hidden;
-  border: 1px solid #c7d4e1;
-  border-radius: 5px;
-  background: #ffffff;
-}
-
-.app-panel-title {
-  padding: 7px 8px;
-  border-bottom: 1px solid #d5deea;
-  background: #f5f8fb;
-  color: #354256;
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.app-lines {
-  margin: 0;
-  padding: 9px 9px 9px 25px;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 8.5px;
-  line-height: 2.25;
-}
-
-.app-lines li::marker {
-  color: #97a6b7;
-}
-
-.app-lines.output li {
-  padding-left: 4px;
-  border-bottom: 1px solid #edf1f5;
-}
-
-.app-lines .duplicate {
-  border-radius: 3px;
-  background: #fff1b8;
-}
-
-.app-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 7px 3px 0;
-  color: #536274;
-  font-size: 8px;
+.hero-shot:hover,
+.hero-shot:focus-visible {
+  border-color: var(--blue);
+  transform: translateY(-2px);
 }
 
 .visual-caption {
@@ -582,7 +442,7 @@ h3 {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 72px 0;
 }
 
 .section-alt {
@@ -1134,15 +994,15 @@ pre {
 }
 
 .inner-hero h1 {
-  max-width: 20ch;
-  font-size: clamp(2.35rem, 5vw, 4rem);
+  max-width: 26ch;
+  font-size: clamp(1.75rem, 2.6vw, 2.35rem);
 }
 
 .inner-hero p {
   max-width: 65ch;
   margin: 0;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .article-layout {
@@ -1291,18 +1151,13 @@ pre {
 .not-found-code {
   margin: 0;
   color: var(--blue);
-  font-size: clamp(5rem, 18vw, 11rem);
-  font-weight: 850;
-  line-height: 0.9;
-  letter-spacing: -0.08em;
+  font-size: clamp(3.5rem, 11vw, 5.5rem);
+  font-weight: 760;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
 
 @media (max-width: 1040px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
-    gap: 38px;
-  }
-
   .feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1367,18 +1222,17 @@ pre {
     padding-top: 54px;
   }
 
-  .hero-grid,
   .privacy-layout,
   .technical-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-grid {
-    gap: 46px;
+  .hero-figure {
+    margin-top: 36px;
   }
 
   h1 {
-    max-width: 15ch;
+    max-width: 20ch;
   }
 
   .cards-three {
@@ -1436,11 +1290,10 @@ pre {
   }
 
   h1 {
-    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    font-size: clamp(1.8rem, 7vw, 2.25rem);
   }
 
-  .hero-actions,
-  .primary-action {
+  .hero-actions {
     width: 100%;
   }
 
@@ -1609,5 +1462,366 @@ pre {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* ==========================================================================
+   Динамічне оформлення
+   Усі ефекти нижче — доповнення. Без JavaScript і за ввімкненого режиму
+   зменшеної анімації сторінка лишається повністю читабельною.
+   ========================================================================== */
+
+/* --- Живе світло у шапці ------------------------------------------------ */
+
+.hero {
+  overflow: hidden;
+}
+
+.hero-aurora {
+  position: absolute;
+  z-index: 0;
+  inset: -30% -10% auto -10%;
+  height: 130%;
+  pointer-events: none;
+}
+
+.hero-aurora span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(90px);
+  animation: aurora-drift 26s ease-in-out infinite alternate;
+}
+
+.hero-aurora span:nth-child(1) {
+  top: 4%;
+  left: 2%;
+  width: 44vw;
+  max-width: 620px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(31, 95, 168, 0.5), transparent 68%);
+}
+
+.hero-aurora span:nth-child(2) {
+  top: 16%;
+  right: 4%;
+  width: 38vw;
+  max-width: 540px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(228, 185, 61, 0.34), transparent 68%);
+  animation-delay: -9s;
+  animation-duration: 32s;
+}
+
+.hero-aurora span:nth-child(3) {
+  bottom: 2%;
+  left: 42%;
+  width: 34vw;
+  max-width: 480px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(93, 168, 233, 0.34), transparent 68%);
+  animation-delay: -17s;
+  animation-duration: 38s;
+}
+
+@keyframes aurora-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, -6%, 0) scale(1.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora span {
+    animation: none;
+  }
+}
+
+/* --- Акцент у головному заголовку --------------------------------------- */
+
+/* Кольори градієнта підібрані так, щоб заголовок лишався контрастним:
+   на світлому тлі — лише темні відтінки, на темному — лише світлі. */
+.gradient-text {
+  background: linear-gradient(96deg, #16468c 4%, #2f7ec7 52%, #1d5fa6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gradient-text {
+    background: linear-gradient(96deg, #7fbdf5 4%, #b9dcfb 52%, #f0ca57 104%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* --- Поява блоків під час прокручування --------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 620ms cubic-bezier(0.22, 0.68, 0.35, 1),
+    transform 620ms cubic-bezier(0.22, 0.68, 0.35, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal].is-visible:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+[data-reveal].is-visible:nth-child(3) {
+  transition-delay: 180ms;
+}
+
+[data-reveal].is-visible:nth-child(4) {
+  transition-delay: 270ms;
+}
+
+/* Без JavaScript або за зменшеної анімації вміст показуємо одразу. */
+html:not(.js-ready) [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Картки, що відгукуються на курсор ----------------------------------- */
+
+.card,
+.feature,
+.step,
+.price-card {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.card:hover,
+.price-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--blue) 45%, var(--border));
+  box-shadow: var(--shadow-lg);
+}
+
+.feature:hover h3 {
+  color: var(--blue);
+}
+
+/* --- Смуга з показниками ------------------------------------------------- */
+
+.stats-band {
+  padding: 34px 0;
+  border-block: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--blue);
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 740;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@media (max-width: 700px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* --- Розділ із відео ----------------------------------------------------- */
+
+.video-layout {
+  display: grid;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+  gap: 56px;
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  background: #0b1522;
+  box-shadow: var(--shadow-lg);
+}
+
+.video-frame::after {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: 22px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  content: "";
+  pointer-events: none;
+}
+
+.video-frame iframe,
+.video-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.video-play {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding: 0 18px 28px;
+  border: 0;
+  background: linear-gradient(180deg, rgba(6, 16, 28, 0.08) 40%, rgba(6, 16, 28, 0.88));
+  cursor: pointer;
+  transition: background 220ms ease;
+}
+
+.video-play:hover {
+  background: linear-gradient(180deg, rgba(6, 16, 28, 0.18) 34%, rgba(6, 16, 28, 0.93));
+}
+
+.video-play-circle {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  align-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: var(--blue-deep);
+  transition: transform 220ms ease;
+}
+
+.video-play:hover .video-play-circle {
+  transform: scale(1.09);
+}
+
+.video-play-circle::before {
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 19px solid currentColor;
+  content: "";
+}
+
+.video-play-caption {
+  order: 2;
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 650;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.video-play-circle {
+  order: 1;
+}
+
+.video-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+@media (max-width: 900px) {
+  .video-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    justify-items: center;
+  }
+
+  .video-frame {
+    max-width: 320px;
+  }
+}
+
+/* --- Плаваюча смуга із закликом ------------------------------------------ */
+
+.sticky-cta {
+  position: fixed;
+  z-index: 90;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 -8px 30px rgba(12, 30, 52, 0.14);
+  transform: translateY(120%);
+  transition: transform 320ms cubic-bezier(0.22, 0.68, 0.35, 1);
+}
+
+.sticky-cta.is-visible {
+  transform: none;
+}
+
+.sticky-cta p {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 620;
+}
+
+.sticky-cta .button {
+  min-height: 42px;
+  padding: 8px 18px;
+}
+
+@media (max-width: 640px) {
+  .sticky-cta p {
+    display: none;
+  }
+
+  .sticky-cta {
+    padding: 10px 16px;
+  }
+
+  .sticky-cta .button {
+    width: 100%;
   }
 }
