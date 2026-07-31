@@ -1618,6 +1618,71 @@ html:not(.js-ready) [data-reveal] {
   color: var(--blue);
 }
 
+/* --- Формати, які програма відкриває і зберігає --------------------------- */
+
+.formats {
+  display: grid;
+  margin-top: 44px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px 44px;
+}
+
+.formats-column h3 {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--blue);
+  font-size: 0.94rem;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.formats-column p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.formats-column strong {
+  color: var(--text);
+  font-weight: 660;
+}
+
+.format-chips {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.format-chips li {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-blue);
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 620;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .formats {
+    padding: 24px 20px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 /* --- Смуга з показниками ------------------------------------------------- */
 
 .stats-band {
