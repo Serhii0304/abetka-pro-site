@@ -776,6 +776,14 @@ h3 {
   scroll-margin-top: calc(var(--header-height) + 24px);
 }
 
+/* Без min-width: 0 колонка сітки не може стиснутися менше за свій вміст,
+   і довгий рядок у шаблоні листа розтягує весь блок за межі екрана. */
+.order-main,
+.order-template-block,
+.formats-column {
+  min-width: 0;
+}
+
 .order-lead {
   margin: 0 0 22px;
   color: var(--muted);
