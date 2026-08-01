@@ -48,33 +48,58 @@
     });
   });
 
+  /* Копіювання в буфер обміну має три рівні, бо жоден із них не працює всюди:
+     сучасний navigator.clipboard недоступний, якщо сторінку відкрито з файлу
+     (file://), а старий execCommand прибирають із браузерів. Якщо не спрацював
+     жоден — текст лишається виділеним, і людині достатньо натиснути Ctrl+C. */
+  function selectContents(element) {
+    var range = document.createRange();
+    range.selectNodeContents(element);
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
   document.querySelectorAll("[data-copy-target]").forEach(function (button) {
+    var originalLabel = button.textContent;
+
     button.addEventListener("click", async function () {
       var target = document.querySelector(button.dataset.copyTarget);
       if (!target) return;
-      var text = target.value || target.textContent || "";
+      var text = (target.value || target.textContent || "").trim();
       var statusSelector = button.dataset.copyStatus;
       var status = statusSelector ? document.querySelector(statusSelector) : null;
-      var original = button.textContent;
+      var copied = false;
 
-      try {
-        await navigator.clipboard.writeText(text.trim());
-        button.textContent = "Скопійовано";
-        if (status) status.textContent = "Текст скопійовано в буфер обміну.";
-      } catch (error) {
-        var range = document.createRange();
-        range.selectNodeContents(target);
-        var selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        if (status) {
-          status.textContent =
-            "Не вдалося скопіювати автоматично. Текст виділено — натисніть Ctrl+C.";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          copied = true;
+        } catch (error) {
+          copied = false;
         }
       }
 
+      if (!copied) {
+        selectContents(target);
+        try {
+          copied = document.execCommand("copy");
+        } catch (error) {
+          copied = false;
+        }
+        if (copied) window.getSelection().removeAllRanges();
+      }
+
+      if (status) {
+        status.classList.toggle("is-manual", !copied);
+        status.textContent = copied
+          ? "Скопійовано в буфер обміну."
+          : "Текст виділено — натисніть Ctrl+C, щоб скопіювати.";
+      }
+      if (copied) button.textContent = "Скопійовано";
+
       window.setTimeout(function () {
-        button.textContent = original;
+        button.textContent = originalLabel;
       }, 2200);
     });
   });
