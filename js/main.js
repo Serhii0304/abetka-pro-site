@@ -145,6 +145,30 @@
     revealables.forEach(function (el) {
       revealObserver.observe(el);
     });
+
+    /* Запобіжник. Спостерігач надійний, але якщо він із будь-якої причини не
+       спрацює, вміст не має залишитися невидимим — це гірше за відсутність
+       анімації. Тому додатково показуємо все, що вже потрапило в екран, і
+       все, повз що людина вже прогорнула. */
+    var revealVisibleNow = function () {
+      revealables.forEach(function (el) {
+        if (el.classList.contains("is-visible")) return;
+        var box = el.getBoundingClientRect();
+        var reachedByScroll = box.bottom < 0;
+        var insideScreen = box.top < window.innerHeight && box.bottom > 0;
+        if (reachedByScroll || insideScreen) {
+          el.classList.add("is-visible");
+          revealObserver.unobserve(el);
+        }
+      });
+    };
+
+    window.addEventListener("load", function () {
+      window.setTimeout(revealVisibleNow, 400);
+    });
+    window.addEventListener("scroll", revealVisibleNow, { passive: true });
+    window.addEventListener("resize", revealVisibleNow, { passive: true });
+    window.setTimeout(revealVisibleNow, 1200);
   }
 
   // Показники, що набігають до свого значення.
