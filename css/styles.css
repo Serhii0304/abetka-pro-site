@@ -1908,11 +1908,14 @@ html:not(.js-ready) [data-reveal] {
   .video-layout {
     grid-template-columns: 1fr;
     gap: 34px;
-    justify-items: center;
   }
 
+  /* Тут не можна justify-items: center — воно змушує колонку стискатися до
+     вмісту, а рамка з width: 100% від такої колонки схлопується в кілька
+     пікселів, і відео на телефоні зникає. Центруємо полями. */
   .video-frame {
     max-width: 320px;
+    margin-inline: auto;
   }
 }
 
